@@ -6,6 +6,11 @@ settings = yaml.load(open('settings.yaml'))
 
 def email(body):
   email = json.loads(body)
+  # For some reason, ActiveResource is very adamant about generating a JSON
+  # root... so unnest it if needed
+  if 'email' in email:
+    email = email['email']
+
   mail.EmailMessage(**email).send()
 
 class OutboundHandler(webapp.RequestHandler):

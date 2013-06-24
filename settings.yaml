@@ -1,2 +1,3 @@
 api_key: changeme
+mandrill_api_key: changeme
 outbound_url: http://localhost:3000/emails
